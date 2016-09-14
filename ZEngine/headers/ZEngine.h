@@ -13,6 +13,10 @@ namespace zng {
 
 	public:
 		int initialize();
+		int run();
+
+	private:
+		bool running;
 
 	private:
 		ZEngine() { };

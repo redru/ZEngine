@@ -7,6 +7,8 @@ int main()
 	if (engine.initialize() != zng::OK)
 		return 1;
 
+	engine.run();
+
 	zng::EventBus& eBus(zng::EventBus::getInstance());
 	eBus.publish(zng::GraphicsMessage(60));
 

@@ -22,5 +22,30 @@ int zng::ZEngine::initialize() {
 		return zng::KO;
 	}
 
+	graphics.run();
+
+	return zng::OK;
+}
+
+int zng::ZEngine::run() {
+	running = true;
+
+	zng::GraphicsEngine& graphics(zng::GraphicsEngine::getInstance());
+	sf::Window& window(graphics.getWindow());
+
+	while (running) {
+
+		sf::Event event;
+		while (window.pollEvent(event)) {
+
+			if (event.type == sf::Event::Closed) {
+				running = false;
+			} else if (event.type == sf::Event::Resized) {
+				glViewport(0, 0, event.size.width, event.size.height);
+			}
+		}
+
+	}
+
 	return zng::OK;
 }
