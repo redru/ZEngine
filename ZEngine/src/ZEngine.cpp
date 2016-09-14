@@ -22,7 +22,7 @@ int zng::ZEngine::initialize() {
 		return zng::KO;
 	}
 
-	eventBus.subscribe(zng::message::GRAPHICS, graphics);
+	eventBus.publish(zng::GraphicsMessage(60));
 
 	return zng::OK;
 }

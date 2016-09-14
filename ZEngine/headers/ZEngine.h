@@ -16,7 +16,6 @@ namespace zng {
 
 	private:
 		ZEngine() { };
-		// ~ZEngine() { };
 
 	public:
 		static ZEngine& getInstance() {

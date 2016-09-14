@@ -6,11 +6,11 @@
 
 namespace zng {
 
-	class GraphicsEngine : public Subscriber {
+	class GraphicsEngine : public zng::Subscriber {
 
 	public:
 		int initialize();
-		virtual void onMessage(Message message) override;
+		virtual void onMessage(zng::Message& message) override;
 
 	private:
 		GraphicsEngine() { };
