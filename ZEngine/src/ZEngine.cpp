@@ -1,12 +1,12 @@
 #include "ZEngine.h"
 
 int zng::ZEngine::initialize() {
-	zng::EventBus& eventBus(zng::EventBus::getInstance());
+	zng::EventBus& eBus(zng::EventBus::getInstance());
 	zng::GraphicsEngine& graphics( zng::GraphicsEngine::getInstance() );
 	zng::PhysicsEngine& physics( zng::PhysicsEngine::getInstance() );
 	zng::SoundEngine& sound( zng::SoundEngine::getInstance() );
 
-	if (eventBus.initialize() == zng::KO) {
+	if (eBus.initialize() == zng::KO) {
 		return zng::KO;
 	}
 
@@ -21,8 +21,6 @@ int zng::ZEngine::initialize() {
 	if (sound.initialize() == zng::KO) {
 		return zng::KO;
 	}
-
-	eventBus.publish(zng::GraphicsMessage(60));
 
 	return zng::OK;
 }

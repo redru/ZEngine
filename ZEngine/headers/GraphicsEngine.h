@@ -6,15 +6,13 @@
 
 namespace zng {
 
-	class GraphicsEngine : public zng::Subscriber {
+	class GraphicsEngine {
 
 	public:
 		int initialize();
-		virtual void onMessage(zng::Message& message) override;
 
 	private:
 		GraphicsEngine() { };
-		// ~GraphicsEngine() { };
 
 	public:
 		static GraphicsEngine& getInstance() {
@@ -22,6 +20,15 @@ namespace zng {
 			return *instance;
 		}
 
+	private:
+		class : public Subscriber {
+
+			virtual void onMessage(zng::Message& message) {
+				zng::GraphicsMessage& gMessage = dynamic_cast<zng::GraphicsMessage&> (message);
+				std::cout << "FPS: " << gMessage.getFps() << std::endl;
+			};
+
+		} graphicsSubscriber;
 
 	};
 

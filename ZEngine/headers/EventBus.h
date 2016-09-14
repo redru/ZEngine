@@ -19,7 +19,7 @@ namespace zng {
 
 	class EventBus {
 
-		using SUB = boost::shared_ptr<zng::Subscriber>;
+		using SUB = std::vector<zng::Subscriber*>;
 
 	public:
 		int initialize();
@@ -31,7 +31,7 @@ namespace zng {
 		EventBus() { };
 
 	private:
-		std::map<unsigned short int, std::vector<SUB>> subscribers;
+		std::map<unsigned short int, SUB> subscribers;
 
 	public:
 		static EventBus& getInstance() {
