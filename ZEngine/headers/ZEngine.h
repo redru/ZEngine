@@ -7,21 +7,18 @@
 #include "PhysicsEngine.h"
 #include "SoundEngine.h"
 
-namespace zng
-{
-	class ZEngine
-	{
+namespace zng {
+
+	class ZEngine {
 
 	public:
 		int initialize();
 
 	private:
 		ZEngine() { };
-		// ~ZEngine() { };
 
 	public:
-		static ZEngine& getInstance()
-		{
+		static ZEngine& getInstance() {
 			static boost::scoped_ptr<ZEngine> instance( new ZEngine );
 			return *instance;
 		}

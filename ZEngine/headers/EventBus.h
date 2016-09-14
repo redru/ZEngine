@@ -1,33 +1,36 @@
 #pragma once
+#include <iostream>
+#include <map>
+#include <vector>
 #include <boost\smart_ptr\scoped_ptr.hpp>
+#include <boost\smart_ptr\shared_ptr.hpp>
 
 #include "Codes.h"
+#include "Messages.h"
 
-namespace zng
-{
+namespace zng {
 
-	class EventBus
-	{
+	class EventBus {
+
+		using SUB = std::vector<std::function<void(zng::Message&)>>;
 
 	public:
 		int initialize();
-		int subscribe();
+		int subscribe(unsigned short int type, std::function<void(zng::Message&)> onMessage);
 
-		void publishGraphicsMessage();
-		void publishPhysicsMessage();
-		void publishSoundMessage();
+		void publish(zng::Message& message);
+
+	private:
+		std::map<unsigned short int, SUB> subscribers;
 
 	private:
 		EventBus() { };
-		// ~GraphicsEngine() { };
 
 	public:
-		static EventBus& getInstance()
-		{
-			static boost::scoped_ptr<EventBus> instance( new EventBus );
+		static EventBus& getInstance() {
+			static boost::scoped_ptr<EventBus> instance(new EventBus);
 			return *instance;
 		}
-
 
 	};
 

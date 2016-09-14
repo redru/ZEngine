@@ -1,28 +1,31 @@
 #include "EventBus.h"
 
-int zng::EventBus::initialize()
-{
+int zng::EventBus::initialize() {
+	subscribers[message::GRAPHICS] = SUB(20);
 
 	return zng::OK;
 }
 
-int zng::EventBus::subscribe()
-{
+int zng::EventBus::subscribe(unsigned short int type, std::function<void(zng::Message&)> onMessage) {
+	SUB& subs(subscribers[type]);
 
-	return zng::OK;
+	for (SUB::iterator it = subs.begin(); it != subs.end(); it++) {
+		if (*it == NULL) {
+			*it = onMessage;
+			return zng::OK;
+		}
+	}
+
+	return zng::KO;
 }
 
-void zng::EventBus::publishGraphicsMessage()
-{
+void zng::EventBus::publish(zng::Message& message) {
 
-}
+	SUB& subs(subscribers[message.getType()]);
 
-void zng::EventBus::publishPhysicsMessage()
-{
-
-}
-
-void zng::EventBus::publishSoundMessage()
-{
-
+	for (SUB::iterator it = subs.begin(); it != subs.end(); it++) {
+		if (*it != NULL) {
+			(*it)(message);
+		}
+	}
 }
