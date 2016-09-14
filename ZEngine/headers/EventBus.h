@@ -10,35 +10,27 @@
 
 namespace zng {
 
-	class Subscriber {
-
-	public:
-		virtual void onMessage(zng::Message& message) = 0;
-
-	};
-
 	class EventBus {
 
-		using SUB = std::vector<zng::Subscriber*>;
+		using SUB = std::vector<std::function<void(zng::Message&)>>;
 
 	public:
 		int initialize();
-		int subscribe(unsigned short int type, zng::Subscriber& sub);
+		int subscribe(unsigned short int type, std::function<void(zng::Message&)> onMessage);
 
 		void publish(zng::Message& message);
 
 	private:
-		EventBus() { };
+		std::map<unsigned short int, SUB> subscribers;
 
 	private:
-		std::map<unsigned short int, SUB> subscribers;
+		EventBus() { };
 
 	public:
 		static EventBus& getInstance() {
 			static boost::scoped_ptr<EventBus> instance(new EventBus);
 			return *instance;
 		}
-
 
 	};
 

@@ -6,12 +6,12 @@ int zng::EventBus::initialize() {
 	return zng::OK;
 }
 
-int zng::EventBus::subscribe(unsigned short int type, Subscriber& sub) {
+int zng::EventBus::subscribe(unsigned short int type, std::function<void(zng::Message&)> onMessage) {
 	SUB& subs(subscribers[type]);
 
 	for (SUB::iterator it = subs.begin(); it != subs.end(); it++) {
 		if (*it == NULL) {
-			*it = &sub;
+			*it = onMessage;
 			return zng::OK;
 		}
 	}
@@ -20,11 +20,12 @@ int zng::EventBus::subscribe(unsigned short int type, Subscriber& sub) {
 }
 
 void zng::EventBus::publish(zng::Message& message) {
+
 	SUB& subs(subscribers[message.getType()]);
 
 	for (SUB::iterator it = subs.begin(); it != subs.end(); it++) {
 		if (*it != NULL) {
-			(*it)->onMessage(message);
+			(*it)(message);
 		}
 	}
 }

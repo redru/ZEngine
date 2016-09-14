@@ -21,14 +21,7 @@ namespace zng {
 		}
 
 	private:
-		class : public Subscriber {
-
-			virtual void onMessage(zng::Message& message) {
-				zng::GraphicsMessage& gMessage = dynamic_cast<zng::GraphicsMessage&> (message);
-				std::cout << "FPS: " << gMessage.getFps() << std::endl;
-			};
-
-		} graphicsSubscriber;
+		void setGraphicsSubscriber(zng::EventBus& eBus);
 
 	};
 
