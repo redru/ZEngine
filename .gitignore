@@ -35,3 +35,6 @@ ZEngine/Debug/
 # Local DB's
 *.VC.db
 *.VC.VC.opendb
+
+#Visual studio
+*.aps

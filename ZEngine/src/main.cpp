@@ -7,6 +7,8 @@ int main()
 	if (engine.initialize() != zng::OK)
 		return 1;
 
+	zng::ShaderFactory& factory(zng::ShaderFactory::getInstance());
+
 	engine.run();
 
 	zng::EventBus& eBus(zng::EventBus::getInstance());

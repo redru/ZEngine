@@ -96,6 +96,9 @@
       <AdditionalLibraryDirectories>$(ProjectDir)libs</AdditionalLibraryDirectories>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;opengl32.lib;winmm.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>XCOPY /S /Y /I "$(ProjectDir)src\shaders" "$(SolutionDir)Debug\shaders"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -149,7 +152,9 @@
     <ClCompile Include="src\GraphicsEngine.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\PhysicsEngine.cpp" />
+    <ClCompile Include="src\ShaderFactory.cpp" />
     <ClCompile Include="src\SoundEngine.cpp" />
+    <ClCompile Include="src\StringUtils.cpp" />
     <ClCompile Include="src\ZEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -158,8 +163,15 @@
     <ClInclude Include="headers\GraphicsEngine.h" />
     <ClInclude Include="headers\Messages.h" />
     <ClInclude Include="headers\PhysicsEngine.h" />
+    <ClInclude Include="headers\Shader.h" />
+    <ClInclude Include="headers\ShaderFactory.h" />
     <ClInclude Include="headers\SoundEngine.h" />
+    <ClInclude Include="headers\StringUtils.h" />
     <ClInclude Include="headers\ZEngine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\shaders\default.frag" />
+    <None Include="src\shaders\default.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -25,6 +25,33 @@
     <Filter Include="Source Files\pubsub">
       <UniqueIdentifier>{3b415a8b-440a-4760-9b1b-4d94761d1262}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\factory">
+      <UniqueIdentifier>{d9a2ec9a-8c16-4de5-822a-75f20e4fb81c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\factory">
+      <UniqueIdentifier>{db99a3f9-8099-4537-aad2-aa752134fd49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\geometry">
+      <UniqueIdentifier>{929bcfe3-ec27-4a5f-ad3d-b90cdcd5d4d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\game">
+      <UniqueIdentifier>{fb8e2693-09c7-4858-8ddb-15293be0120c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\geometry">
+      <UniqueIdentifier>{0479259f-501f-4be8-b067-51df8034a4f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game">
+      <UniqueIdentifier>{effbbf4e-1b30-4eb8-b2db-963a040946c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tools">
+      <UniqueIdentifier>{f23bf6ea-8abe-4a0f-ab52-ea259dc381d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tools">
+      <UniqueIdentifier>{67b7df14-fbf9-46a7-a287-cd4daccf814e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\shaders">
+      <UniqueIdentifier>{ec736cb7-a737-4bc3-a33e-b117f7cb6a8e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -44,6 +71,12 @@
     </ClCompile>
     <ClCompile Include="src\EventBus.cpp">
       <Filter>Source Files\pubsub</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ShaderFactory.cpp">
+      <Filter>Source Files\factory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StringUtils.cpp">
+      <Filter>Source Files\tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,5 +101,22 @@
     <ClInclude Include="headers\Messages.h">
       <Filter>Header Files\pubsub</Filter>
     </ClInclude>
+    <ClInclude Include="headers\ShaderFactory.h">
+      <Filter>Header Files\factory</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Shader.h">
+      <Filter>Header Files\factory</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\StringUtils.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\shaders\default.frag">
+      <Filter>Source Files\shaders</Filter>
+    </None>
+    <None Include="src\shaders\default.vert">
+      <Filter>Source Files\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

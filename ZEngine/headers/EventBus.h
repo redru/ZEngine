@@ -12,7 +12,7 @@ namespace zng {
 
 	class EventBus {
 
-		using SUB = std::vector<std::function<void(zng::Message&)>>;
+		using Subscribers = std::vector<std::function<void(zng::Message&)>>;
 
 	public:
 		int initialize();
@@ -21,7 +21,7 @@ namespace zng {
 		void publish(zng::Message& message);
 
 	private:
-		std::map<unsigned short int, SUB> subscribers;
+		std::map<unsigned short int, Subscribers> subscribers;
 
 	private:
 		EventBus() { };

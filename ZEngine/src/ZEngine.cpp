@@ -3,6 +3,7 @@
 int zng::ZEngine::initialize() {
 	zng::EventBus& eBus(zng::EventBus::getInstance());
 	zng::GraphicsEngine& graphics( zng::GraphicsEngine::getInstance() );
+	zng::ShaderFactory& shaderFactory( zng::ShaderFactory::getInstance() );
 	zng::PhysicsEngine& physics( zng::PhysicsEngine::getInstance() );
 	zng::SoundEngine& sound( zng::SoundEngine::getInstance() );
 
@@ -21,6 +22,8 @@ int zng::ZEngine::initialize() {
 	if (sound.initialize() == zng::KO) {
 		return zng::KO;
 	}
+
+	shaderFactory.initializeDefault();
 
 	graphics.run();
 

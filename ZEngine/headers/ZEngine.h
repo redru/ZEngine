@@ -1,9 +1,9 @@
 #pragma once
 #include <iostream>
-#include <boost\smart_ptr\scoped_ptr.hpp>
 
 #include "EventBus.h"
 #include "GraphicsEngine.h"
+#include "ShaderFactory.h"
 #include "PhysicsEngine.h"
 #include "SoundEngine.h"
 
