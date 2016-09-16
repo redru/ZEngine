@@ -33,7 +33,7 @@ void zng::GraphicsEngine::run() {
 	// deactivate its OpenGL context
 	window->setActive(false);
 
-	std::thread GRAPHICS_THREAD([&](sf::Window* win) {
+	std::thread GRAPHICS_THREAD([&](boost::shared_ptr<sf::Window> win) {
 		
 		win->setActive(true);
 
@@ -45,7 +45,7 @@ void zng::GraphicsEngine::run() {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			win->display();
 		}
-	}, window.get());
+	}, window);
 
 	GRAPHICS_THREAD.detach();
 

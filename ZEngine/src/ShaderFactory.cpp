@@ -96,7 +96,7 @@ void zng::ShaderFactory::loadShader(std::string name, std::string vertexPath, st
 	boost::shared_ptr<zng::Shader> shader( new Shader(ProgramID) );
 
 	// Load uniforms
-	GLint i;
+	// GLint i;
 	GLint count;
 
 	GLint size; // size of the variable

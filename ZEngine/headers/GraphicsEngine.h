@@ -25,7 +25,7 @@ namespace zng {
 		void setGraphicsSubscriber(zng::EventBus& eBus);
 
 	private:
-		boost::scoped_ptr<sf::Window> window;
+		boost::shared_ptr<sf::Window> window;
 
 	private:
 		GraphicsEngine() { };
