@@ -155,18 +155,23 @@
     <ClCompile Include="src\ShaderFactory.cpp" />
     <ClCompile Include="src\SoundEngine.cpp" />
     <ClCompile Include="src\StringUtils.cpp" />
+    <ClCompile Include="src\Triangle.cpp" />
     <ClCompile Include="src\ZEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\Codes.h" />
     <ClInclude Include="headers\EventBus.h" />
     <ClInclude Include="headers\GraphicsEngine.h" />
+    <ClInclude Include="headers\Mesh.h" />
     <ClInclude Include="headers\Messages.h" />
+    <ClInclude Include="headers\Model.h" />
     <ClInclude Include="headers\PhysicsEngine.h" />
     <ClInclude Include="headers\Shader.h" />
     <ClInclude Include="headers\ShaderFactory.h" />
     <ClInclude Include="headers\SoundEngine.h" />
     <ClInclude Include="headers\StringUtils.h" />
+    <ClInclude Include="headers\Triangle.h" />
+    <ClInclude Include="headers\Vertex.h" />
     <ClInclude Include="headers\ZEngine.h" />
   </ItemGroup>
   <ItemGroup>

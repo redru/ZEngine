@@ -1,4 +1,6 @@
 #include "ZEngine.h"
+#include "Triangle.h"
+#include "Mesh.h"
 
 int main()
 {
@@ -7,7 +9,7 @@ int main()
 	if (engine.initialize() != zng::OK)
 		return 1;
 
-	zng::ShaderFactory& factory(zng::ShaderFactory::getInstance());
+	zng::Triangle triangle1 = *zng::Triangle::create();
 
 	engine.run();
 

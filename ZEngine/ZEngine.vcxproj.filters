@@ -52,6 +52,15 @@
     <Filter Include="Source Files\shaders">
       <UniqueIdentifier>{ec736cb7-a737-4bc3-a33e-b117f7cb6a8e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\model">
+      <UniqueIdentifier>{a1fcbbd7-c6a2-4d0e-9161-dc044aea80f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\geometry\basic">
+      <UniqueIdentifier>{7495e41b-691f-4539-888b-08bc2b743875}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\geometry\basic">
+      <UniqueIdentifier>{fd581375-77f9-4b9d-9ed4-a4879098a285}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -77,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="src\StringUtils.cpp">
       <Filter>Source Files\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Triangle.cpp">
+      <Filter>Source Files\geometry\basic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +121,18 @@
     </ClInclude>
     <ClInclude Include="headers\StringUtils.h">
       <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Mesh.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Model.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Vertex.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Triangle.h">
+      <Filter>Header Files\geometry\basic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

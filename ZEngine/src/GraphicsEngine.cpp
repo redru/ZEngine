@@ -25,6 +25,10 @@ void zng::GraphicsEngine::setGraphicsSubscriber(zng::EventBus& eBus) {
 
 }
 
+void zng::GraphicsEngine::loadBasicGeometry() {
+
+}
+
 void zng::GraphicsEngine::run() {
 
 	// create the window (remember: it's safer to create it in the main thread due to OS limitations)

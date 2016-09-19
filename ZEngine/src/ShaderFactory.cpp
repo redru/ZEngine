@@ -21,7 +21,7 @@ void zng::ShaderFactory::loadShader(std::string name, std::string vertexPath, st
 
 		VertexShaderStream.close();
 	} else {
-		printf("Impossible to open %s. Are you in the right directory ? Don't forget to read the FAQ !\n", vertexPath);
+		printf("Impossible to open %s.\n", vertexPath.c_str());
 		getchar();
 		return;
 	}
@@ -42,7 +42,7 @@ void zng::ShaderFactory::loadShader(std::string name, std::string vertexPath, st
 	int InfoLogLength;
 
 	// Compile Vertex Shader
-	printf("Compiling shader : %s\n", vertexPath);
+	printf("Compiling shader : %s\n", vertexPath.c_str());
 	char const * VertexSourcePointer = VertexShaderCode.c_str();
 	glShaderSource(VertexShaderID, 1, &VertexSourcePointer, NULL);
 	glCompileShader(VertexShaderID);
@@ -57,7 +57,7 @@ void zng::ShaderFactory::loadShader(std::string name, std::string vertexPath, st
 	}
 
 	// Compile Fragment Shader
-	printf("Compiling shader : %s\n", fragmentPath);
+	printf("Compiling shader : %s\n", fragmentPath.c_str());
 	char const * FragmentSourcePointer = FragmentShaderCode.c_str();
 	glShaderSource(FragmentShaderID, 1, &FragmentSourcePointer, NULL);
 	glCompileShader(FragmentShaderID);

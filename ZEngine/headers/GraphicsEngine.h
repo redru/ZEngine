@@ -23,6 +23,7 @@ namespace zng {
 
 	private:
 		void setGraphicsSubscriber(zng::EventBus& eBus);
+		void loadBasicGeometry();
 
 	private:
 		boost::shared_ptr<sf::Window> window;
