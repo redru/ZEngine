@@ -26,7 +26,7 @@ void zng::GraphicsEngine::setGraphicsSubscriber(zng::EventBus& eBus) {
 }
 
 void zng::GraphicsEngine::loadBasicGeometry() {
-
+	zng::Triangle::initialize();
 }
 
 void zng::GraphicsEngine::run() {
@@ -42,15 +42,27 @@ void zng::GraphicsEngine::run() {
 		win->setActive(true);
 
 		// OPENGL SETUP
-		glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		// -----------
 
 		while (win->isOpen()) {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+			drawAll();
+
 			win->display();
 		}
 	}, window);
 
 	GRAPHICS_THREAD.detach();
 
+}
+
+void zng::GraphicsEngine::drawAll() {
+	DrawTargets& dTargs(zng::ObjectStorageEngine::getInstance().getDrawTargets());
+	for (DrawTargets::iterator it(dTargs.begin()); it != dTargs.end(); it++) {
+		if (*it != NULL) {
+			(*it)->draw();
+		}
+	}
 }

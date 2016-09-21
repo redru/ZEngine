@@ -151,6 +151,7 @@
     <ClCompile Include="src\EventBus.cpp" />
     <ClCompile Include="src\GraphicsEngine.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\ObjectStorageEngine.cpp" />
     <ClCompile Include="src\PhysicsEngine.cpp" />
     <ClCompile Include="src\ShaderFactory.cpp" />
     <ClCompile Include="src\SoundEngine.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="headers\Mesh.h" />
     <ClInclude Include="headers\Messages.h" />
     <ClInclude Include="headers\Model.h" />
+    <ClInclude Include="headers\ObjectStorageEngine.h" />
     <ClInclude Include="headers\PhysicsEngine.h" />
     <ClInclude Include="headers\Shader.h" />
     <ClInclude Include="headers\ShaderFactory.h" />

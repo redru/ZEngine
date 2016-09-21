@@ -90,6 +90,9 @@
     <ClCompile Include="src\Triangle.cpp">
       <Filter>Source Files\geometry\basic</Filter>
     </ClCompile>
+    <ClCompile Include="src\ObjectStorageEngine.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\Codes.h">
@@ -133,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="headers\Triangle.h">
       <Filter>Header Files\geometry\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\ObjectStorageEngine.h">
+      <Filter>Header Files\core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

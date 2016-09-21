@@ -9,7 +9,8 @@ int main()
 	if (engine.initialize() != zng::OK)
 		return 1;
 
-	zng::Triangle triangle1 = *zng::Triangle::create();
+	boost::shared_ptr<zng::Triangle> triangle(zng::Triangle::create());
+	zng::ObjectStorageEngine::getInstance().addDrawTarget(triangle);
 
 	engine.run();
 

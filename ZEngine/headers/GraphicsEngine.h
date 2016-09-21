@@ -9,10 +9,14 @@
 
 #include "Codes.h"
 #include "EventBus.h"
+#include "ObjectStorageEngine.h"
+#include "Triangle.h"
 
 namespace zng {
 
 	class GraphicsEngine {
+
+		using DrawTargets = std::vector<boost::shared_ptr<zng::Model>>;
 
 	public:
 		int initialize();
@@ -24,6 +28,7 @@ namespace zng {
 	private:
 		void setGraphicsSubscriber(zng::EventBus& eBus);
 		void loadBasicGeometry();
+		void drawAll();
 
 	private:
 		boost::shared_ptr<sf::Window> window;

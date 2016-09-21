@@ -1,11 +1,15 @@
 #include "ZEngine.h"
 
 int zng::ZEngine::initialize() {
+	zng::ObjectStorageEngine& objectStorage(zng::ObjectStorageEngine::getInstance());
 	zng::EventBus& eBus(zng::EventBus::getInstance());
 	zng::GraphicsEngine& graphics( zng::GraphicsEngine::getInstance() );
 	zng::ShaderFactory& shaderFactory( zng::ShaderFactory::getInstance() );
 	zng::PhysicsEngine& physics( zng::PhysicsEngine::getInstance() );
 	zng::SoundEngine& sound( zng::SoundEngine::getInstance() );
+
+	if (objectStorage.initialize() == zng::KO)
+		return zng::KO;
 
 	if (eBus.initialize() == zng::KO) {
 		return zng::KO;

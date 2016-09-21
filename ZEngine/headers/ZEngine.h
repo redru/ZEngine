@@ -6,6 +6,7 @@
 #include "ShaderFactory.h"
 #include "PhysicsEngine.h"
 #include "SoundEngine.h"
+#include "ObjectStorageEngine.h"
 
 namespace zng {
 
