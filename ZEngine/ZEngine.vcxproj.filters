@@ -61,6 +61,9 @@
     <Filter Include="Source Files\geometry\basic">
       <UniqueIdentifier>{fd581375-77f9-4b9d-9ed4-a4879098a285}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\camera">
+      <UniqueIdentifier>{a6ad980d-15ac-4eaf-8cc6-325b5d0dfcc7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="headers\ObjectStorageEngine.h">
       <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Camera.h">
+      <Filter>Header Files\camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

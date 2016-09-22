@@ -15,9 +15,10 @@ namespace zng {
 		Shader() : program(-1) { };
 		Shader(GLuint program) : program(program) { };
 
-		inline void setUniform(std::string name, GLuint uniformId) { uniforms[name] = uniformId; };
 		inline void setProgram(GLuint _program) { program = _program; };
+		inline GLuint getProgram() { return program; };
 
+		inline void setUniform(std::string name, GLuint uniformId) { uniforms[name] = uniformId; };
 		inline GLuint getUniform(std::string name) {
 			Uniforms::iterator it = uniforms.find(name);
 			if (it == uniforms.end())

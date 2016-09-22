@@ -2,9 +2,10 @@
 
 namespace zng {
 
-	namespace message {
+	namespace MESSAGE {
 
 		static unsigned short int GRAPHICS = 0x000000;
+		static unsigned short int SHUTDOWN = 0x000001;
 
 	}
 
@@ -24,14 +25,24 @@ namespace zng {
 	class GraphicsMessage : public Message {
 
 	public:
-		GraphicsMessage() : Message(message::GRAPHICS) { };
-		GraphicsMessage(int fps) : Message(message::GRAPHICS), fps(fps) { };
+		GraphicsMessage() : Message(MESSAGE::GRAPHICS) { };
+		GraphicsMessage(int fps) : Message(MESSAGE::GRAPHICS), fps(fps) { };
 		~GraphicsMessage() { };
 
 		inline int getFps() { return fps; };
 
 	private:
 		int fps;
+
+	};
+
+	class ShutdownMessage : public Message {
+
+	public:
+		ShutdownMessage() : Message(MESSAGE::SHUTDOWN) { };
+		~ShutdownMessage() { };
+
+	private:
 
 	};
 

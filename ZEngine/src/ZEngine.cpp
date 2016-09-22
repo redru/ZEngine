@@ -38,6 +38,8 @@ int zng::ZEngine::run() {
 	running = true;
 
 	zng::GraphicsEngine& graphics(zng::GraphicsEngine::getInstance());
+	zng::EventBus& eBus(zng::EventBus::getInstance());
+
 	sf::Window& window(graphics.getWindow());
 
 	while (running) {
@@ -47,8 +49,9 @@ int zng::ZEngine::run() {
 
 			if (event.type == sf::Event::Closed) {
 				running = false;
+				eBus.publish(zng::ShutdownMessage());
 			} else if (event.type == sf::Event::Resized) {
-				glViewport(0, 0, event.size.width, event.size.height);
+				graphics.changeViewport(zng::Viewport(0, 0, event.size.width, event.size.height));
 			}
 		}
 

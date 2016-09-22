@@ -9,18 +9,22 @@ int zng::GraphicsEngine::initialize() {
 	glewExperimental = GL_TRUE;
 
 	zng::EventBus& eBus(zng::EventBus::getInstance());
-	setGraphicsSubscriber(eBus);
+	setSubscribers(eBus);
 
 	return zng::OK;
 }
 
-void zng::GraphicsEngine::setGraphicsSubscriber(zng::EventBus& eBus) {
+void zng::GraphicsEngine::setSubscribers(zng::EventBus& eBus) {
 
-	eBus.subscribe(zng::message::GRAPHICS, [&](zng::Message& message) {
+	eBus.subscribe(zng::MESSAGE::GRAPHICS, [&](zng::Message& message) {
 
 		zng::GraphicsMessage& gMessage = dynamic_cast<zng::GraphicsMessage&> (message);
 		std::cout << "FPS: " << gMessage.getFps() << std::endl;
 
+	});
+
+	eBus.subscribe(zng::MESSAGE::SHUTDOWN, [&](zng::Message& message) {
+		closing = true;
 	});
 
 }
@@ -41,11 +45,16 @@ void zng::GraphicsEngine::run() {
 		
 		win->setActive(true);
 
+		loadBasicGeometry();
+
 		// OPENGL SETUP
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		// -----------
 
-		while (win->isOpen()) {
+		while (win->isOpen() && !closing) {
+			updateGraphicsEngine();
+			camera->calculateMVP();
+
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 			drawAll();

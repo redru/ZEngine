@@ -23,7 +23,7 @@ namespace zng {
 		inline void setActive(bool _active) { active = _active; };
 		inline bool isActive() { return active; };
 
-	private:
+	protected:
 		Shader& shader;
 		Transform position;
 		Transform rotation;

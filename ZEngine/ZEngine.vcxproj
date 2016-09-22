@@ -160,6 +160,7 @@
     <ClCompile Include="src\ZEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\Camera.h" />
     <ClInclude Include="headers\Codes.h" />
     <ClInclude Include="headers\EventBus.h" />
     <ClInclude Include="headers\GraphicsEngine.h" />

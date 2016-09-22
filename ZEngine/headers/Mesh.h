@@ -20,6 +20,18 @@ namespace zng {
 
 		inline Vertices& getVertices() { return vertices; };
 
+		inline std::vector<float> getArrayVertices() {
+			std::vector<float> points(vertices.size() * 3);
+
+			for (unsigned int index = 0, position = 0; position < vertices.size(); index += 3, position++) {
+				points[index] = vertices[position]->getX();
+				points[index + 1] = vertices[position]->getY();
+				points[index + 2] = vertices[position]->getZ();
+			}
+
+			return points;
+		};
+
 	private:
 		Vertices vertices;
 

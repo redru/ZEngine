@@ -1,7 +1,7 @@
 #include "EventBus.h"
 
 int zng::EventBus::initialize() {
-	subscribers[message::GRAPHICS] = Subscribers(20);
+	subscribers[MESSAGE::GRAPHICS] = Subscribers(20);
 
 	return zng::OK;
 }
